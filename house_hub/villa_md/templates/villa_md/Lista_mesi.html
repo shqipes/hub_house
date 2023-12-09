@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista mesi</h1>
+
+    <div class="card-body ps-0 pb-0">
+        <a class="btn btn-sm btn-danger" href="{% url 'crea_mese' %}">Crea Mese</a>
+    </div>
+
+
+{% for mese in lista_mesi %}
+    <div class="card my-3">
+        <div class="card-header">
+            <h5><a href="{% url 'mese_view' pk=mese.pk %}"><strong>{{ mese.mese }}</strong></a></h5>
+            <p class="mb-0">{{ mese.anno }}</p>
+        </div>
+                       
+    </div>
+{% endfor %}
+
+{% endblock content %}

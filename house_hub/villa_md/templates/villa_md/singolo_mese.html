@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ block.super }} - {{ Mese.mese }}{% endblock head_title %}
+
+{% block content %}
+<div class="card my-3">
+    <div class="card-header">
+        <h3>{{ mese.mese }} {{ mese.anno }}</h3>
+        <p>Totale giornate: {{ mese.get_number_giorni_in_mese }}   
+    </div>
+<div class="col-lg-4">
+        <p>Lista giornate</p>
+        <table class="table table-hover">
+    <tbody>
+        <tr class="row">
+            {% for orario in mese.get_all_orari.all %}
+                <td class="col-lg-7 col-6 b">
+                    <a href="{% url 'visualizza_orario' pk=orario.pk %}">{{ orario.data }}</a>
+                    <td class="col-lg-2 col-2"><h5>ore:</h5></td>     
+                </td>
+              <td class="col-lg-1 col-1"><h5>{{ orario.ore }}</h5></td>  
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+</div>
+    <div class="card-body">
+        <a class="btn btn-sm btn-info" href="{% url 'crea_giornata' pk=mese.pk %}">Crea giornata</a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ block.super }} - {% endblock head_title %}
+
+{% block content %}
+<h5>{{ azione.nome_azione}}</h5>
+<h5>{{ azione.descrizione_azione}}</h5>
+<h5>{{ azione.tempo_azione}}</h5>
+{% endblock content %}

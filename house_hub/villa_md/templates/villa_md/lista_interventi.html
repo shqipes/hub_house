@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista Interventi</h1>
+
+    <div class="card-body ps-0 pb-0">
+        <a class="btn btn-sm btn-danger" href="{% url 'crea_intervento' %}">Aggiungi nuovo Intervento</a>
+    </div>
+
+
+{% for intervento in lista_interventi %}
+    <div class="card my-3">
+        <div class="card-header">
+            <h5><a href=""><strong>{{ intervento.nome_int }}</strong></a></h5>
+            <p class="mb-0">{{ intervento.descrizione_intervento }}</p>
+        </div>
+                       
+    </div>
+{% endfor %}
+
+{% endblock content %}

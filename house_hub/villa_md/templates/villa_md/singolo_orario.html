@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head_title %}{{ block.super }} - {% endblock head_title %}
+
+{% block content %}
+
+<h4>{{ orario.data }}</h4>
+
+{% for azione in orario.get_all_attivita.all %}
+
+<h3>{{ azione.nome_azione }}</h3>
+{% endfor %}
+<div class="card-body">
+	<a class="btn btn-sm btn-info" href="{% url 'aggiungi_a_lavoro' pk=orario.pk %}">aggiungi</a>
+</div>
+{% endblock content %}

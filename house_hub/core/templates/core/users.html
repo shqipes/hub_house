@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_staff %}
+    <div class="card-body ps-0 pb-0">
+        <a class="btn btn-sm btn-danger" href="{% url 'user_profile' %}">Lista Utenti</a>
+    </div>
+{% endif %}
+
+
+
+{% endblock content %}
